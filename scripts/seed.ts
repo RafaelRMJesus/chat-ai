@@ -6,14 +6,13 @@ async function main() {
   try {
     await db.category.createMany({
       data: [
-        { name: 'Famous People' },
+        { name: 'Celebrities' },
         { name: 'Movies & TV' },
         { name: 'Musicians' },
         { name: 'Games' },
         { name: 'Animals' },
         { name: 'Philosophy' },
-        { name: 'Scientists' },
-        { name: 'sex' },
+        { name: 'Scientists' }
       ],
     });
   } catch (error) {
