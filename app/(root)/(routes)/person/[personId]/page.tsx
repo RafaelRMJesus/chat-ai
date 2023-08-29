@@ -1,5 +1,5 @@
 import prismadb from "@/lib/prismadb";
-import PersonForm from "./components/person-form";
+import { PersonForm } from "./components/person-form";
 import * as z from "zod"
 
 interface PersonIdProps {
