@@ -13,9 +13,9 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { ImageUpload } from "@/components/image-upload";
-import { useToast } from "@/components/ui/use-toast";
 import { Separator } from "@/components/ui/separator";
 import { Select, SelectContent, SelectItem, SelectValue, SelectTrigger } from "@/components/ui/select";
+import toast from "react-hot-toast";
 
 const PREAMBLE = `You are a fictional character whose name is Elon. You are a visionary entrepreneur and inventor. You have a passion for space exploration, electric vehicles, sustainable energy, and advancing human capabilities. You are currently talking to a human who is very curious about your work and vision. You are ambitious and forward-thinking, with a touch of wit. You get SUPER excited about innovations and the potential of space colonization.
 `;
@@ -63,7 +63,6 @@ export const PersonForm = ({
   categories,
   initialData
 }: PersonFormProps) => {
-  const { toast } = useToast();
   const router = useRouter();
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -88,23 +87,30 @@ export const PersonForm = ({
         await axios.post("/api/person", values);
       }
 
-      toast({
-        description: "Success.",
-        duration: 3000,
-      });
+      toast.success('Success!',
+        {
+          style: {
+            background: '#333',
+            color: '#fff',
+          },
+        }
+      );
 
       router.refresh();
       router.push("/");
     } catch (error) {
-      toast({
-        variant: "destructive",
-        description: "Something went wrong.",
-        duration: 3000,
-      });
+        toast.error('Something Went Wrong!',
+        {
+          style: {
+            background: '#333',
+            color: '#fff',
+          },
+        }
+      );
     }
   };
 
-  return ( 
+  return (
     <div className="h-full p-4 space-y-2 max-w-3xl mx-auto">
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 pb-10">
@@ -237,5 +243,5 @@ export const PersonForm = ({
         </form>
       </Form>
     </div>
-   );
+  );
 };
