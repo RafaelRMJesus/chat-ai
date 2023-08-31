@@ -28,11 +28,12 @@ export const Navbar = () => {
           </h1>
         </Link>
       </div>
+      <div>
+        <p className="text-muted-foreground">
+          This is a Portfolio Project by Rafael Jesus
+        </p>
+      </div>
       <div className="flex items-center gap-x-3">
-          <Button variant="gradient" size="sm">
-            Upgrade
-            <Sparkles className="h-4 w-4 fill-white text-white ml-2"/>
-          </Button>
           <ModeToggle />
           <UserButton afterSignOutUrl="/" />
       </div>

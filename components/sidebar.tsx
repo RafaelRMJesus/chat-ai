@@ -21,12 +21,6 @@ const Sidebar = () => {
       href: "/person/new",
       label: "Create",
       pro: true
-    },
-    {
-      icon: Settings,
-      href: "/settings",
-      label: "Settings",
-      pro: false
     }
   ]
 
